@@ -112,3 +112,11 @@ node  | Db is connected
 node  | GET From SERVER
 node  | GET From SERVER
 ```
+
+Procesar la imagen e ignore la cache
+```bash
+docker-compose up -d --force-recreate
+# OR rerecrear las imagen  
+docker-compose up -d --build --force-recreate
+```
+

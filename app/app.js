@@ -9,7 +9,7 @@ const app = express();
 // mongoose.set('useUnifiedTopology', true);
 
 mongoose
-    .connect("mongodb://mongo:27017/iberoVentas", { useNewUrlParser: true })
+    .connect("mongodb://mongo:27017/iberoVentas", { useNewUrlParser: true, useUnifiedTopology: true })
     .then((db) => console.log("Db is connected"))
     .catch((error) => console.error(error));
 

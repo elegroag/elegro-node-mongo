@@ -1,4 +1,4 @@
-version: '3.3'
+version: '3.8'
 services:
   mongo:
     image: mongo
@@ -11,7 +11,7 @@ services:
     volumes: 
       - ./data:/data/db
     ports:
-      - 27017:27017
+      - $MONGO_PORT:$MONGO_PORT
     networks:
       - server_net
 
@@ -40,7 +40,7 @@ services:
       MONGO_DB: $MONGO_DB 
     networks:
       - server_net
-    command: npm run start
+    command: bash -c "npm install && npm run start"
 
   nginx:
     image: nginx
@@ -56,9 +56,9 @@ services:
       - server_net
 
 volumes:
-  app:
-  node_modules:
-  data:
+  app: {}
+  node_modules: {}
+  data: {}
 networks:
   server_net:
     driver: bridge
